@@ -1,13 +1,13 @@
 'use client'
 import { createStore } from 'redux';
 
-const initState = { value : 0 };
+const initState = { value : 0 , show: false};
 
 const counterReducer = (state = initState , action) => {
     //Increase
 
     if (action.type === "increase") {
-        return {value : state.value + action.payload};
+        return {...state ,value : state.value + action.payload };
     }
 
     //Decrease
@@ -16,7 +16,11 @@ const counterReducer = (state = initState , action) => {
         if (state.value === 0) {
             return state
         }
-        return {value : state.value - action.payload};
+        return {...state , value : state.value - action.payload};
+    }
+
+    if (action.type === "toggle") {
+        return {...state ,show : !state.show}
     }
 
     return state
