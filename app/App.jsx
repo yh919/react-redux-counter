@@ -26,7 +26,7 @@ export default function Home() {
           <div className="counter">
           Counter : {globalState.counter.value}
           </div>
-         <div className="btns">
+         <div className="flex items-center justify-center btns">
           <button onClick={() => dispatch(increase(1))} className="btn bg-green-600 mx-3 p-3">Increace +</button>
           <button onClick={() => dispatch(decrease(1))} className="btn bg-red-500 mx-3 p-3">Decreace -</button>
          </div>
